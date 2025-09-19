@@ -1,6 +1,7 @@
 import 'package:demo1/screen/absentMessage.dart';
 import 'package:demo1/screen/local_cloud_backup.dart';
 import 'package:demo1/screen/recordandreport.dart';
+import 'package:demo1/screen/studentManagement.dart';
 import 'package:flutter/material.dart';
 
 // --- IMPORTANT: IMPORT YOUR SCREEN FILES ---
@@ -52,6 +53,7 @@ class _MainScreenState extends State<MainScreen> {
     AbsenceMessageGeneratorScreen(), // Index 0
     BackupScreen(),                  // Index 1
     ReportsApp(),          // Index 2
+    StudentManagementScreen(),      // Index 3
   ];
 
   // This function is called when a tab is tapped.
@@ -88,6 +90,7 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(Icons.bar_chart),
             label: 'Reports',
           ),
+          
         ],
         currentIndex: _selectedIndex, // This tells the bar which tab to highlight.
         selectedItemColor: const Color(0xFF2563EB), // Color for the active tab.

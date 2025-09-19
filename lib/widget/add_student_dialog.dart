@@ -1,88 +1,68 @@
-// In a new file: lib/add_student_dialog.dart
+// In lib/add_student_dialog.dart
 
-import 'package:demo1/data/student.dart';
 import 'package:flutter/material.dart';
-
+import 'package:demo1/data/student.dart'; // Make sure path is correct
 
 class AddStudentDialog extends StatefulWidget {
-  const AddStudentDialog({super.key});
+  // Add an optional student parameter to the constructor.
+  // If a student is passed, we are in "Edit" mode.
+  // If it's null, we are in "Add" mode.
+  final AbsentStudent? student;
+
+  const AddStudentDialog({super.key, this.student});
 
   @override
-  
   State<AddStudentDialog> createState() => _AddStudentDialogState();
 }
 
 class _AddStudentDialogState extends State<AddStudentDialog> {
-  // Controllers to get the text from the TextFields
   final _nameController = TextEditingController();
   final _rollNoController = TextEditingController();
   final _enrollmentController = TextEditingController();
-  
-  // Variable to hold the selected department
   String? _selectedDepartment;
 
   @override
+  void initState() {
+    super.initState();
+    // If we are editing, fill the fields with the student's data.
+    if (widget.student != null) {
+      _nameController.text = widget.student!.name;
+      _rollNoController.text = widget.student!.rollNo;
+      _enrollmentController.text = widget.student!.enrollmentNo;
+      _selectedDepartment = widget.student!.department;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    // Check if we are in edit mode to change the title and button text
+    final isEditing = widget.student != null;
+
     return AlertDialog(
-      title: const Text('Add New Student'),
-      // The main content of the dialog is a Column with all our form fields
+      title: Text(isEditing ? 'Edit Student' : 'Add New Student'),
       content: SingleChildScrollView(
         child: Column(
-          mainAxisSize: MainAxisSize.min, // Make the column size fit its content
-          children: [
-            TextField(
-              controller: _nameController,
-              decoration: const InputDecoration(labelText: 'Student Name'),
-            ),
-            const SizedBox(height: 8),
-            TextField(
-              controller: _rollNoController,
-              decoration: const InputDecoration(labelText: 'Roll Number'),
-              keyboardType: TextInputType.number,
-            ),
-            const SizedBox(height: 8),
-            TextField(
-              controller: _enrollmentController,
-              decoration: const InputDecoration(labelText: 'Enrolment Number'),
-            ),
-            const SizedBox(height: 16),
-            // A dropdown menu for the department
-            DropdownButtonFormField<String>(
-              value: _selectedDepartment,
-              hint: const Text('Select Department'),
-              items: ['CE', 'IT']
-                  .map((dept) => DropdownMenuItem(value: dept, child: Text(dept)))
-                  .toList(),
-              onChanged: (value) {
-                setState(() {
-                  _selectedDepartment = value;
-                });
-              },
-            ),
-          ],
+          // ... your TextFields and DropdownButtonFormField remain the same ...
         ),
       ),
       actions: [
-        // Cancel Button
         TextButton(
-          onPressed: () {
-            Navigator.of(context).pop(); // Closes the dialog
-          },
+          onPressed: () => Navigator.of(context).pop(),
           child: const Text('Cancel'),
         ),
-        // Add Button
         ElevatedButton(
           onPressed: () {
-            // Create a new student object from the form data
-            final newStudent = AbsentStudent(
+            // Create a new or updated student object
+            final studentData = AbsentStudent(
               rollNo: _rollNoController.text,
               name: _nameController.text,
-              department: _selectedDepartment ?? '', // Use selected value
+              enrollmentNo: _enrollmentController.text,
+              department: _selectedDepartment ?? '',
             );
-            // Close the dialog and send the new student data back
-            Navigator.of(context).pop(newStudent);
+            // Return the data
+            Navigator.of(context).pop(studentData);
           },
-          child: const Text('Add Student'),
+          child: Text(isEditing ? 'Save Changes' : 'Add Student'),
         ),
       ],
     );

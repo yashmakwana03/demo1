@@ -5,11 +5,14 @@ class AbsentStudent {
   final String rollNo;
   final String name;
   final String department;
+  final String enrollmentNo; 
 
   const AbsentStudent({
     required this.rollNo,
     required this.name,
     required this.department,
+    required this.enrollmentNo,
+    
   });
 }
 

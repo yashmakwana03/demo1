@@ -48,8 +48,8 @@ class _DetailedReportScreenState extends State<DetailedReportScreen> {
       attendancePercent: '88%',
       percentColor: Colors.green,
       absentStudents: [
-        const AbsentStudent(rollNo: '1', name: 'Yash', department: 'CE'),
-        const AbsentStudent(rollNo: '2', name: 'VISHWARAJSINH', department: 'IT'),
+        const AbsentStudent(rollNo: '1', name: 'Yash', department: 'CE', enrollmentNo: '23SOECE11059'),
+        const AbsentStudent(rollNo: '2', name: 'VISHWARAJSINH', department: 'IT', enrollmentNo: '24SOEIT13002'),
       ],
     ),
     LectureSlot(
@@ -59,8 +59,8 @@ class _DetailedReportScreenState extends State<DetailedReportScreen> {
       attendancePercent: '75%',
       percentColor: Colors.orange,
       absentStudents: [
-        const AbsentStudent(rollNo: '1', name: 'Yash', department: 'CE'),
-        const AbsentStudent(rollNo: '2', name: 'VISHWARAJSINH', department: 'IT'),
+        const AbsentStudent(rollNo: '1', name: 'Yash', department: 'CE', enrollmentNo: '23SOECE11059'),
+        const AbsentStudent(rollNo: '2', name: 'VISHWARAJSINH', department: 'IT', enrollmentNo: '24SOEIT13002'  ),
       ],
     ),
      LectureSlot(
@@ -70,7 +70,7 @@ class _DetailedReportScreenState extends State<DetailedReportScreen> {
       attendancePercent: '65%',
       percentColor: Colors.red,
       absentStudents: [
-        const AbsentStudent(rollNo: '1', name: 'Yash', department: 'CE'),
+        const AbsentStudent(rollNo: '1', name: 'Yash', department: 'CE', enrollmentNo: '23SOECE11059'),
       ],
     ),
   ];

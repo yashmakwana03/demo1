@@ -1,6 +1,7 @@
 // In a new file: lib/student_management_screen.dart
 
 import 'package:demo1/data/student.dart';
+import 'package:demo1/screen/sidebar.dart';
 import 'package:demo1/widget/add_student_dialog.dart';
 import 'package:flutter/material.dart';
 
@@ -15,9 +16,9 @@ class StudentManagementScreen extends StatefulWidget {
 class _StudentManagementScreenState extends State<StudentManagementScreen> {
   // This is the state of our screen: a list of students
   final List<AbsentStudent> _students = [
-    AbsentStudent(rollNo: '1', name: 'Yash', department: 'CE'),
-    AbsentStudent(rollNo: '2', name: 'VISHWARAJSINH', department: 'IT'),
-    AbsentStudent(rollNo: '3', name: 'Raj', department: 'CE'),
+    AbsentStudent(rollNo: '1', name: 'Yash', department: 'CE', enrollmentNo: '23SOECE11059'),
+    AbsentStudent(rollNo: '2', name: 'VISHWARAJSINH', department: 'IT', enrollmentNo: '24SOEIT13002'),
+    AbsentStudent(rollNo: '3', name: 'Raj', department: 'CE', enrollmentNo: '23SOECE11060'),
   ];
 
   // This function shows the "Add Student" dialog
@@ -49,10 +50,7 @@ class _StudentManagementScreenState extends State<StudentManagementScreen> {
         title: const Text('Student Detail'),
         // This will automatically add the menu icon to open a drawer
       ),
-      drawer: const Drawer(
-        // You would place your SidebarScreen widget here
-        child: Text("Your Sidebar Goes Here"), 
-      ),
+
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
@@ -68,6 +66,7 @@ class _StudentManagementScreenState extends State<StudentManagementScreen> {
               ),
             ],
           ),
+          
           const SizedBox(height: 16),
           
           // Student tables for each department

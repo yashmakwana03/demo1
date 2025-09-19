@@ -17,8 +17,8 @@ class _AddSubjectDialogState extends State<AddSubjectDialog> {
 
   // Sample data for our dropdowns
   final List<String> _days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-  final List<String> _timeSlots = ['8:00 - 9:45', '10:00 - 11:40', '1:20 - 2:10'];
-  final List<String> _faculties = ['VD', 'OS', 'SJ', 'MS', 'Krishnamurti'];
+  final List<String> _timeSlots = ['8:00 - 8:55 ','8:55 - 9:45', '10:00 - 10:50' , '10:50 - 11:40', '12:30 - 1:20' , '1:20 - 2:10' , ];
+  final List<String> _faculties = ['NVB','PJT','BD','NV','Arzoo sir','SJ','SP','MS','SS','BGP','KP','VD', 'OS'];
 
   @override
   Widget build(BuildContext context) {

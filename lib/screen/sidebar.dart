@@ -1,5 +1,6 @@
 // In your sidebar.dart file
 
+import 'package:demo1/screen/search_screen.dart';
 import 'package:demo1/screen/studentManagement.dart';
 import 'package:demo1/screen/timetable_screen.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +51,7 @@ class Sidebar extends StatelessWidget {
           title: const Text('Search & Filter'),
           onTap: () {
              Navigator.pop(context);
+             Navigator.push(context, MaterialPageRoute(builder: (_) => SearchScreen()));
           },
         ),
       ],

@@ -1,6 +1,7 @@
 // In a new file: lib/timetable_screen.dart
 
 import 'package:demo1/data/timetable_model.dart';
+import 'package:demo1/screen/sidebar.dart';
 import 'package:demo1/widget/add_subject_dialog.dart';
 import 'package:flutter/material.dart';
 
@@ -51,6 +52,8 @@ class _TimetableScreenState extends State<TimetableScreen> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Timetable Management')),
+      
+  
       body: Column(
         children: [
           // Header with "Timetable" and "+ Add" button
